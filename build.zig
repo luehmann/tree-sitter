@@ -12,8 +12,7 @@ pub fn build(b: *std.Build) void {
     lib.addIncludePath(.{ .path = "lib/include" });
     lib.addIncludePath(.{ .path = "lib/src" });
 
-    lib.installHeadersDirectory(b.path("lib/include"), ".", .{});
-    lib.installHeadersDirectory(b.path("lib/src"), ".", .{});
+    lib.installHeadersDirectory(.{ .path = "lib/include/tree_sitter" }, "tree_sitter", .{});
     lib.installHeader(b.path("lib/src/parser.h"), "tree_sitter/parser.h");
 
     b.installArtifact(lib);
