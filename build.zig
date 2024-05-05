@@ -14,6 +14,7 @@ pub fn build(b: *std.Build) void {
 
     lib.installHeadersDirectory(b.path("lib/include"), ".", .{});
     lib.installHeadersDirectory(b.path("lib/src"), ".", .{});
+    lib.installHeader(b.path("lib/src/parser.h"), "tree_sitter/parser.h");
 
     b.installArtifact(lib);
 }
